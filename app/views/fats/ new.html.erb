@@ -1,0 +1,10 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @fat, local: true) do |form| %>
+      <%= form.number :weight, placeholder: "体重" %>
+      <%= form.number :body_fat, placeholder: "体脂肪率" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+  </div>
+</div>

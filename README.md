@@ -1,24 +1,43 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|Column             |Type   |Options                   |
+|-------------------|-------|--------------------------|
+|name               |string |null: false               |
+|email              |string |null: false, unique: true |
+|encrypted_password |string |null: false               |
 
-* Ruby version
+### Association
+- has_many : fatsテーブル
 
-* System dependencies
 
-* Configuration
+## fatsテーブル
 
-* Database creation
+|Column   |Type       |Options                        |
+|---------|-----------|-------------------------------|
+|weight   |float      |null: false                    |
+|body_fat |float      |null: false                    |
+|user     |references |null: false, foreign_key: true |
 
-* Database initialization
+### Association
+- belongs_to :usersテーブル
+- has_one :bodiesテーブル
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## bodiesテーブル
 
-* Deployment instructions
+|Column        |Type       |Options                        |
+|--------------|-----------|-------------------------------|
+|sex           |integer    |null: false                    |
+|age           |integer    |null: false                    |
+|height        |integer    |null: false                    |
+|p             |integer    |null: false                    |
+|f             |integer    |null: false                    |
+|c             |integer    |null: false                    |
+|goal_body_fat |float      |                               |
+|goal_day      |integer    |                               |
+|weight        |references |null: false, foreign_key: true |
 
-* ...
+### Association
+- belongs_to :fatsテーブル
