@@ -14,7 +14,7 @@ class FatsController < ApplicationController
 
   private
   def fat_params
-    params.require(:fat).permit(:weight, :body_fat)
+    params.require(:fat).permit(:weight, :body_fat).merge(user_id: current_user.id)
   end
 
 end

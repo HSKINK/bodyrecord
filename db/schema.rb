@@ -10,15 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_171115) do
+ActiveRecord::Schema.define(version: 2021_12_10_092742) do
+
+  create_table "bodies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "sex", null: false
+    t.integer "age", null: false
+    t.integer "height", null: false
+    t.integer "p", null: false
+    t.integer "f", null: false
+    t.integer "c", null: false
+    t.float "goal_body_fat"
+    t.integer "goal_day"
+    t.bigint "weight_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["weight_id"], name: "index_bodies_on_weight_id"
+  end
 
   create_table "fats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.float "weight", null: false
     t.float "body_fat", null: false
-    t.bigint "user_id_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_fats_on_user_id_id"
+    t.index ["user_id"], name: "index_fats_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -4,7 +4,6 @@ class CreateFats < ActiveRecord::Migration[6.0]
       t.float       :weight,   null: false
       t.float       :body_fat, null: false
       t.references  :user,     null: false, foreign_ket: true
-
       t.timestamps
     end
   end
