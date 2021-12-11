@@ -18,9 +18,9 @@ class FatBody
     validates :goal_day, numericality: { greater_than: 0, message: "is invalid" }
   end
   validates :goal_body_fat, numericality: { greater_than: 0, message: "is invalid"}, format: { with: /\A[0-9]+(\.[0-9]+)?\z/ }
-end
 
-def save
-  fat = Fat.create(weight: weight, body_fat: body_fat, user_id: user_id)
-  Body.create(sex_id: sex_id, age: age, height: height, nutrients_p: nutrients_p , nutrients_f: nutrients_f, nutrients_c: nutrients_c, goal_body_fat: goal_body_fat, goal_day: goal_day, fat_id: fat.id)
+  def save
+    fat = Fat.create(weight: weight, body_fat: body_fat, user_id: user_id)
+    Body.create(sex_id: sex_id, age: age, height: height, nutrients_p: nutrients_p , nutrients_f: nutrients_f, nutrients_c: nutrients_c, goal_body_fat: goal_body_fat, goal_day: goal_day, fat_id: fat.id)
+  end
 end
