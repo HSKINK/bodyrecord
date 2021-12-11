@@ -13,18 +13,18 @@
 ActiveRecord::Schema.define(version: 2021_12_10_092742) do
 
   create_table "bodies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "sex", null: false
+    t.integer "sex_id", null: false
     t.integer "age", null: false
     t.integer "height", null: false
-    t.integer "p", null: false
-    t.integer "f", null: false
-    t.integer "c", null: false
+    t.integer "nutrients_p", null: false
+    t.integer "nutrients_f", null: false
+    t.integer "nutrients_c", null: false
     t.float "goal_body_fat"
     t.integer "goal_day"
-    t.bigint "weight_id", null: false
+    t.bigint "fat_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["weight_id"], name: "index_bodies_on_weight_id"
+    t.index ["fat_id"], name: "index_bodies_on_fat_id"
   end
 
   create_table "fats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

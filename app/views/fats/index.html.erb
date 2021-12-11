@@ -1,9 +1,9 @@
 <div class="contents row">
-  <% @fats.each do |fat| %>
+  <% @fats.each do |f| %>
     <div class="content_post">
-      <p><%= fat.weight %></p>
+      <p><%= f.weight %></p>
       <span class="name">
-        <%= fat.body_fat %>
+        <%= f.body_fat %>
       </span>
     </div>
   <% end %>

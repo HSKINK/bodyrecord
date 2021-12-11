@@ -21,8 +21,8 @@
 |user     |references |null: false, foreign_key: true |
 
 ### Association
-- belongs_to :usersテーブル
-- has_one :bodiesテーブル
+- belongs_to :userテーブル
+- has_one :bodyテーブル
 
 
 ## bodiesテーブル
@@ -32,12 +32,12 @@
 |sex           |integer    |null: false                    |
 |age           |integer    |null: false                    |
 |height        |integer    |null: false                    |
-|p             |integer    |null: false                    |
-|f             |integer    |null: false                    |
-|c             |integer    |null: false                    |
+|nutrients_p   |integer    |null: false                    |
+|nutrients_f   |integer    |null: false                    |
+|nutrients_c   |integer    |null: false                    |
 |goal_body_fat |float      |                               |
 |goal_day      |integer    |                               |
-|weight        |references |null: false, foreign_key: true |
+|fat           |references |null: false, foreign_key: true |
 
 ### Association
-- belongs_to :fatsテーブル
+- belongs_to :fatテーブル

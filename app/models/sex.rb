@@ -1,4 +1,4 @@
-class Ship < ActiveHash::Base
+class Sex < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '男性' },
@@ -6,5 +6,5 @@ class Ship < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :fats
+  has_many :bodies
 end

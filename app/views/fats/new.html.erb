@@ -1,10 +1,19 @@
 <div class="contents row">
   <div class="container">
     <h3>投稿する</h3>
-    <%= form_with(model: @fat, local: true) do |form| %>
-      <%= form.text_field :weight, placeholder: "体重" %>
-      <%= form.text_field :body_fat, placeholder: "体脂肪率" %>
-      <%= form.submit "SEND" %>
+    <%= form_with model: @fat_body, url: fats_path, local: true do |f| %>
+      <%= render 'error_messages', model: @fat_body %> 
+      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"sex-category"}) %>
+      <%= f.text_field :age, placeholder: "年齢" %>
+      <%= f.text_field :height, placeholder: "身長" %>
+      <%= f.text_field :weight, placeholder: "体重" %>
+      <%= f.text_field :body_fat, placeholder: "体脂肪率" %>
+      <%= f.text_field :nutrients_p, placeholder: "タンパク質" %>
+      <%= f.text_field :nutrients_f, placeholder: "脂肪" %>
+      <%= f.text_field :nutrients_c, placeholder: "炭水化物" %>
+      <%= f.text_field :goal_body_fat, placeholder: "目標体脂肪率" %>
+      <%= f.text_field :goal_day, placeholder: "目標達成日" %>
+      <%= f.submit "SEND" %>
     <% end %>
   </div>
 </div>
