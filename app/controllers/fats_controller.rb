@@ -1,7 +1,16 @@
 class FatsController < ApplicationController
 
   def index
-    @fats = Fat.all
+    @fats = Fat.all.order('id DESC')
+
+      # 合計するデータが用意できなかったので 無意味に id を合計してます
+      weights = Fat.group_by_day(:day).sum(:weight)
+      body_fats = Fat.group_by_day(:day).sum(:body_fat)
+      @chart = [
+        { name: "体重", data: weights },
+        { name: "体脂肪", data: body_fats },
+      ]
+
   end
 
   def new
