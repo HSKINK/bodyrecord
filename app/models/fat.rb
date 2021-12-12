@@ -7,4 +7,5 @@ class Fat < ApplicationRecord
 
   belongs_to :user
   has_one :body
+
 end
