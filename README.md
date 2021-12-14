@@ -36,7 +36,6 @@
 |nutrients_f   |integer    |null: false                    |
 |nutrients_c   |integer    |null: false                    |
 |goal_body_fat |float      |                               |
-|goal_day      |integer    |                               |
 |fat           |references |null: false, foreign_key: true |
 
 ### Association

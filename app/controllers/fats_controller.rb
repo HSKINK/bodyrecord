@@ -3,7 +3,6 @@ class FatsController < ApplicationController
   def index
     @fats = Fat.all.order('id DESC')
 
-      # 合計するデータが用意できなかったので 無意味に id を合計してます
       weights = Fat.group_by_day(:day).sum(:weight)
       body_fats = Fat.group_by_day(:day).sum(:body_fat)
       @chart = [
@@ -30,6 +29,6 @@ class FatsController < ApplicationController
   private
 
   def fat_params
-    params.require(:fat_body).permit(:weight, :body_fat, :day, :sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat, :goal_day).merge(user_id: current_user.id)
+    params.require(:fat_body).permit(:weight, :body_fat, :day, :sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat ).merge(user_id: current_user.id)
   end
 end

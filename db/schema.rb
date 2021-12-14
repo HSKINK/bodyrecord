@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2021_12_10_092742) do
     t.integer "nutrients_f", null: false
     t.integer "nutrients_c", null: false
     t.float "goal_body_fat"
-    t.integer "goal_day"
     t.bigint "fat_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

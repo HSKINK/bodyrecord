@@ -1,7 +1,5 @@
-<%= line_chart Fat.group_by_day(:day).sum(:weight) %>
-<%= line_chart @chart %>
-
 <div class="contents row">
+  <%= line_chart @chart %>
   <% @fats.each do |f| %>
     <div class="content_post">
       <p><%= f.weight %></p>

@@ -18,7 +18,7 @@
                 <mxCell id="5" value="bodiesテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
                     <mxGeometry x="560" y="81" width="140" height="168" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="sex&#10;age&#10;height&#10;goal_body_fat&#10;nutrients_p&#10;nutrients_f&#10;nutrients_c&#10;goal_day&#10;fat_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="5" vertex="1">
+                <mxCell id="6" value="sex&#10;age&#10;height&#10;goal_body_fat&#10;nutrients_p&#10;nutrients_f&#10;nutrients_c&#10;fat_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="5" vertex="1">
                     <mxGeometry y="26" width="140" height="142" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERone;endFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startArrow=ERone;startFill=0;entryX=-0.007;entryY=0.309;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.364;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="4" target="6" edge="1">

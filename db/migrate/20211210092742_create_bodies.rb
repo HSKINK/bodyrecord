@@ -8,7 +8,6 @@ class CreateBodies < ActiveRecord::Migration[6.0]
       t.integer    :nutrients_f,  null: false
       t.integer    :nutrients_c,  null: false
       t.float      :goal_body_fat
-      t.integer    :goal_day
       t.references :fat,          null: false, foreign_ket: true
       t.timestamps
     end
