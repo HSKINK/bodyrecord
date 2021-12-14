@@ -1,8 +1,9 @@
 <div class="contents row">
   <div class="container">
-    <h3>投稿する</h3>
+    <h3>入力する</h3>
     <%= form_with model: @fat_body, url: fats_path, local: true do |f| %>
-      <%= render 'error_messages', model: @fat_body %> 
+      <%= render 'error_messages', model: @fat_body %>
+      <p> 年 </p> 
       <div class='input-birth-wrap'>
         <%= raw sprintf(
                   f.date_select(
@@ -14,7 +15,7 @@
                     start_year: 2010,
                     end_year: Time.now.year,
                     date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+                  "<p> 月 </p>", "<p> 日 </p>") + "<p> </p>" %>
       </div>
       <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"sex-category"}) %>
       <%= f.text_field :age, placeholder: "年齢" %>
@@ -25,7 +26,7 @@
       <%= f.text_field :nutrients_f, placeholder: "脂肪" %>
       <%= f.text_field :nutrients_c, placeholder: "炭水化物" %>
       <%= f.text_field :goal_body_fat, placeholder: "目標体脂肪率" %>
-      <%= f.submit "SEND" %>
+      <%= f.submit "計算する" %>
     <% end %>
   </div>
 </div>
