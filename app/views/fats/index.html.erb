@@ -15,7 +15,7 @@
           (たんぱく質:<%= (n * b.nutrients_p / 400).to_i %>g 脂肪:<%= (n * b.nutrients_f / 900).to_i %>g 炭水化物:<%= (n * b.nutrients_c / 400).to_i %>g)</p>
           <% n1 = n * 1.5 %><% n2 = n * 1.75 %><% n3 = n * 2.00 %>
           <p>身体活動レベル　低い：<%= n1.to_i %>kcal　普通：<%= n2.to_i %>kcal　高い：<%= n3.to_i %>kcal</p>
-          <% k = f.weight * (f.body_fat - b.goal_body_fat) / 100 * 9 * 1000 %>
+          <% k = f.weight * (f.body_fat - b.goal_body_fat) / 100 * 9 * 1000 * 0.8 %>
           <p>目標体脂肪率まであと<%= k.to_i %>kcalほど落とす必要があります。</p>
         </div>
       <% end %>
