@@ -4,6 +4,7 @@
     <% @bodies.each do |b|%>
       <% if b.fat_id == f.id %>
         <div class="container"> 
+          <p><%= f.day %></p>
           <p>体重：<%= f.weight %>kg
           　体脂肪率：<%= f.body_fat %>％（目標：<%= b.goal_body_fat %>％）
           　BMI：<% bmi = (f.weight * 100 * 100) / (b.height * b.height) %><%= bmi.to_i %></p>
