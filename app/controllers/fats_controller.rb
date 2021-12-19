@@ -4,8 +4,8 @@ class FatsController < ApplicationController
       @fats = Fat.all.order('day DESC')
       @bodies = Body.all
 
-      weights = Fat.group_by_day(:day).sum(:weight)
-      body_fats = Fat.group_by_day(:day).sum(:body_fat)
+      weights = Fat.group_by_day(:day, series: false).sum(:weight)
+      body_fats = Fat.group_by_day(:day, series: false).sum(:body_fat)
       @chart = [
         { name: "体重", data: weights },
         { name: "体脂肪", data: body_fats }
