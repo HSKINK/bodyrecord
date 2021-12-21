@@ -25,14 +25,11 @@ class FatsController < ApplicationController
       render :new
     end
   end
-
-  def edit
-  end
-
-  def update
-  end
-
+  
   def destroy
+    fat = Fat.find(params[:id])
+    binding.pry
+    fat.destroy
   end
 
   private
