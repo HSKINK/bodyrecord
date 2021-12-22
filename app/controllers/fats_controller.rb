@@ -28,8 +28,15 @@ class FatsController < ApplicationController
   
   def destroy
     fat = Fat.find(params[:id])
-    binding.pry
+    body = Body.find(params[:id])
     fat.destroy
+    body.destroy
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
