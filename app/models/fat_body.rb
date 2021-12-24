@@ -24,4 +24,9 @@ class FatBody
     fat = Fat.create(weight: weight, body_fat: body_fat, day: day, user_id: user_id)
     Body.create(sex_id: sex_id, age: age, height: height, nutrients_p: nutrients_p , nutrients_f: nutrients_f, nutrients_c: nutrients_c, goal_body_fat: goal_body_fat, fat_id: fat.id)
   end
+
+  def update
+    fat = Fat.create(weight: weight, body_fat: body_fat, day: day, user_id: user_id)
+    Body.create(sex_id: sex_id, age: age, height: height, nutrients_p: nutrients_p , nutrients_f: nutrients_f, nutrients_c: nutrients_c, goal_body_fat: goal_body_fat, fat_id: fat.id)
+  end
 end
