@@ -31,6 +31,7 @@ class FatsController < ApplicationController
     body = Body.find(params[:id])
     fat.destroy
     body.destroy
+    redirect_to root_path
   end
 
   private
