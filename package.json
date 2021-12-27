@@ -8,10 +8,14 @@
     "@rails/webpacker": "4.3.0",
     "chart.js": "^3.6.2",
     "chartkick": "^4.1.1",
+    "node-sass": "^7.0.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.6.0"
+  },
+  "engines" : {
+    "node": "14.17.1"
   }
 }
