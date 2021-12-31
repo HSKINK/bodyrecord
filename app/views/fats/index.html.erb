@@ -6,12 +6,9 @@
         <% if b.fat_id == f.id %>
           <div class="container"> 
             <div class="more">
-              <span><%= image_tag 'arrow_top.png' %></span>
               <ul class="more_list">
                 <li>
                   <%= link_to '削除', fat_path(f.id), method: :delete %>
-                </li>
-                <li>
                   <%= link_to '編集', "#", method: :get %>
                 </li>
               </ul>
