@@ -34,6 +34,11 @@ class FatsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @fat_body = Fat.find(params[:id])
+    binding.pry
+  end
+
   private
 
   def fat_params
