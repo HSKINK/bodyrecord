@@ -6,6 +6,6 @@ class Fat < ApplicationRecord
   # end
 
   belongs_to :user
-  has_one :body
+  has_one :body, dependent: :destroy
 
 end

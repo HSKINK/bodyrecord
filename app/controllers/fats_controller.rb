@@ -1,15 +1,17 @@
 class FatsController < ApplicationController
 
   def index
-      @fats = Fat.all.order('day DESC')
+    if user_signed_in?
+      @fats = current_user.fats.order('day DESC')
       @bodies = Body.all
 
-      weights = Fat.group_by_day(:day, series: false).sum(:weight)
-      body_fats = Fat.group_by_day(:day, series: false).sum(:body_fat)
+      weights = current_user.fats.group_by_day(:day, series: false).sum(:weight)
+      body_fats = current_user.fats.group_by_day(:day, series: false).sum(:body_fat)
       @chart = [
         { name: "体重", data: weights },
         { name: "体脂肪", data: body_fats }
       ]
+    end
   end
 
   def new
@@ -28,15 +30,13 @@ class FatsController < ApplicationController
   
   def destroy
     fat = Fat.find(params[:id])
-    body = Body.find(params[:id])
     fat.destroy
-    body.destroy
     redirect_to root_path
   end
 
   def edit
-    @fat_body = Fat.find(params[:id])
-    binding.pry
+    fat = Fat.find(params[:id])
+    body = Body.find(fat[:id])
   end
 
   private
