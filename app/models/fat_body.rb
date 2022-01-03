@@ -1,7 +1,7 @@
 class FatBody
   include ActiveModel::Model
   include ActiveRecord::AttributeAssignment
-  attr_accessor :weight, :body_fat, :day, :user_id, :sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat, :fat_id
+  attr_accessor :weight, :body_fat, :day, :user_id, :sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat
 
   with_options presence: true, numericality: { greater_than: 0, message: "is invalid" }, format: { with: /\A[0-9]+(\.[0-9]+)?\z/ } do
     validates :weight
@@ -9,7 +9,6 @@ class FatBody
   end
   validates :day, presence: true
   validates :user_id, presence: true
-  validates :fat_id, presence: true
 
   validates :sex_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   with_options format: { with: /\A[0-9]+\z/ } do
