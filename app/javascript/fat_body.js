@@ -1,4 +1,4 @@
-window.addEventListener('load', function(){
+window.addEventListener('click', function(){
   const pullDownButton = document.getElementById("lists")
   console.log(pullDownButton)
 })
