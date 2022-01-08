@@ -1,6 +1,10 @@
-window.addEventListener('click', function(){
-  const pullDownButton = document.getElementById("lists")
-  console.log(pullDownButton)
+window.addEventListener('load', function(){
+  const male = document.getElementById("male")
+  const calculation = document.getElementById("calculation")
+  
+  calculation.addEventListener('click', function(){
+    console.log("click OK")
+  })
 })
 // window.addEventListener('load', () => {
 //   const priceInput = document.getElementById("item-price");
