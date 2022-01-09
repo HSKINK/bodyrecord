@@ -1,9 +1,22 @@
 window.addEventListener('load', function(){
-  const male = document.getElementById("male")
+  let dates = document.querySelectorAll("input")
+  radio = document.getElementsByName("gender")
   const calculation = document.getElementById("calculation")
   
   calculation.addEventListener('click', function(){
-    console.log("click OK")
+    for(i=0;i<radio.length;i++){
+      if(radio[i].checked){
+        gender = radio[i].value;
+      }
+    }
+    console.log(gender)
+    console.log(dates[2].value)
+    console.log(dates[3].value)
+    console.log(dates[4].value)
+    console.log(dates[5].value)
+    console.log(dates[6].value)
+    console.log(dates[7].value)
+    console.log(dates[8].value)
   })
 })
 // window.addEventListener('load', () => {
