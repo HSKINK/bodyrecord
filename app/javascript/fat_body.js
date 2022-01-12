@@ -32,5 +32,7 @@ window.addEventListener('load', function(){
     tdee1 = tdee * 1.5;
     tdee2 = tdee * 1.75;
     tdee3 = tdee * 2;
+
+    document.getElementById("bmi").innerHTML = bmi;
   })
 })
