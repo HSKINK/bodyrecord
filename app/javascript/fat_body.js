@@ -34,5 +34,12 @@ window.addEventListener('load', function(){
     tdee3 = tdee * 2;
 
     document.getElementById("bmi").innerHTML = bmi;
+    document.getElementById("tdee").innerHTML = tdee;
+    document.getElementById("p").innerHTML = p;
+    document.getElementById("f").innerHTML = f;
+    document.getElementById("c").innerHTML = c;
+    document.getElementById("tdee1").innerHTML = tdee1;
+    document.getElementById("tdee2").innerHTML = tdee2;
+    document.getElementById("tdee3").innerHTML = tdee3;
   })
 })
