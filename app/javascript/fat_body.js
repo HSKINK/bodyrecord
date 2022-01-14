@@ -33,13 +33,13 @@ window.addEventListener('load', function(){
     tdee2 = tdee * 1.75;
     tdee3 = tdee * 2;
 
-    document.getElementById("bmi").innerHTML = bmi;
-    document.getElementById("tdee").innerHTML = tdee;
-    document.getElementById("p").innerHTML = p;
-    document.getElementById("f").innerHTML = f;
-    document.getElementById("c").innerHTML = c;
-    document.getElementById("tdee1").innerHTML = tdee1;
-    document.getElementById("tdee2").innerHTML = tdee2;
-    document.getElementById("tdee3").innerHTML = tdee3;
+    document.getElementById("bmi").innerHTML = Math.round(bmi);
+    document.getElementById("tdee").innerHTML = Math.round(tdee);
+    document.getElementById("p").innerHTML = Math.round(p);
+    document.getElementById("f").innerHTML = Math.round(f);
+    document.getElementById("c").innerHTML = Math.round(c);
+    document.getElementById("tdee1").innerHTML = Math.round(tdee1);
+    document.getElementById("tdee2").innerHTML = Math.round(tdee2);
+    document.getElementById("tdee3").innerHTML = Math.round(tdee3);
   })
 })
