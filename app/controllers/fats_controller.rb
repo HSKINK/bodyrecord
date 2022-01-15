@@ -1,5 +1,4 @@
 class FatsController < ApplicationController
-
   def index
     @fats = current_user.fats.order('day DESC')
     @bodies = Body.all
@@ -7,8 +6,8 @@ class FatsController < ApplicationController
     weights = current_user.fats.group_by_day(:day, series: false).sum(:weight)
     body_fats = current_user.fats.group_by_day(:day, series: false).sum(:body_fat)
     @chart = [
-      { name: "体重", data: weights },
-      { name: "体脂肪", data: body_fats }
+      { name: '体重', data: weights },
+      { name: '体脂肪', data: body_fats }
     ]
   end
 
@@ -25,7 +24,7 @@ class FatsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     fat = Fat.find(params[:id])
     fat.destroy
@@ -49,18 +48,18 @@ class FatsController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      redirect_to fats_path
-    end
+    redirect_to fats_path if user_signed_in?
   end
 
   private
 
   def fatbody_params
-    params.require(:fat_body).permit(:sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat, :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
+    params.require(:fat_body).permit(:sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
+                                     :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
   end
 
   def body_params
-    params.require(:body).permit(:sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat, :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
+    params.require(:body).permit(:sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
+                                 :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
   end
 end

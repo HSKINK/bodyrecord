@@ -1,5 +1,4 @@
 class Body < ApplicationRecord
-
   # validates :sex_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
 
   # with_options format: { with: /\A[0-9]+\z/ } do

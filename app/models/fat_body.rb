@@ -1,7 +1,8 @@
 class FatBody
   include ActiveModel::Model
   include ActiveRecord::AttributeAssignment
-  attr_accessor :weight, :body_fat, :day, :user_id, :sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat
+  attr_accessor :weight, :body_fat, :day, :user_id, :sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c,
+                :goal_body_fat
 
   with_options presence: true, numericality: { greater_than: 0 }, format: { with: /\A[0-9]+(\.[0-9]+)?\z/ } do
     validates :weight
@@ -22,6 +23,7 @@ class FatBody
 
   def save
     fat = Fat.create(weight: weight, body_fat: body_fat, day: day, user_id: user_id)
-    Body.create(sex_id: sex_id, age: age, height: height, nutrients_p: nutrients_p , nutrients_f: nutrients_f, nutrients_c: nutrients_c, goal_body_fat: goal_body_fat, fat_id: fat.id)
+    Body.create(sex_id: sex_id, age: age, height: height, nutrients_p: nutrients_p, nutrients_f: nutrients_f,
+                nutrients_c: nutrients_c, goal_body_fat: goal_body_fat, fat_id: fat.id)
   end
 end
