@@ -5,36 +5,42 @@
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="usersテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="89" y="81" width="140" height="80" as="geometry">
+                    <mxGeometry x="89" y="81" width="140" height="99" as="geometry">
                         <mxRectangle x="330" y="240" width="50" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="3" value="fatsテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="320" y="81" width="140" height="80" as="geometry"/>
+                    <mxGeometry x="560" y="81" width="140" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="weight&#10;body_fat&#10;user_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="3" vertex="1">
                     <mxGeometry y="26" width="140" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="bodiesテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="560" y="81" width="140" height="150" as="geometry"/>
+                    <mxGeometry x="320" y="81" width="140" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="sex&#10;age&#10;height&#10;goal_body_fat&#10;nutrients_p&#10;nutrients_f&#10;nutrients_c&#10;fat_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="5" vertex="1">
                     <mxGeometry y="26" width="140" height="124" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERone;endFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startArrow=ERone;startFill=0;entryX=-0.007;entryY=0.309;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.364;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="4" target="6" edge="1">
+                <mxCell id="7" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERone;endFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startArrow=ERone;startFill=0;exitX=0.007;exitY=0.435;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="6" target="8" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="230" y="149" as="sourcePoint"/>
+                        <mxPoint x="247" y="200" as="sourcePoint"/>
                         <mxPoint x="399" y="147.5" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="8" value="name&#10;email&#10;encrypted_passwordage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="1" vertex="1">
-                    <mxGeometry x="89" y="107" width="140" height="54" as="geometry"/>
+                <mxCell id="8" value="name&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="1" vertex="1">
+                    <mxGeometry x="89" y="107" width="140" height="23" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;strokeColor=#f0f0f0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=ERone;startFill=0;endFill=0;" parent="1" source="8" target="4" edge="1">
+                <mxCell id="9" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;strokeColor=#f0f0f0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERone;startFill=0;endFill=0;" parent="1" source="6" target="4" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="410" y="280" as="sourcePoint"/>
+                        <mxPoint x="259" y="340" as="sourcePoint"/>
                         <mxPoint x="510" y="180" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="x5rLlfylDwacytNRwMsk-9" value="email" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="1">
+                    <mxGeometry x="89" y="130" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="x5rLlfylDwacytNRwMsk-10" value="password" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="1">
+                    <mxGeometry x="89" y="150" width="140" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
