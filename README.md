@@ -57,6 +57,7 @@ https://gyazo.com/e2dafc089539f62bbd41ecacfeef1864
 |---------|-----------|-------------------------------|
 |weight   |float      |null: false                    |
 |body_fat |float      |null: false                    |
+|day      |date       |null: false                    |
 |user     |references |null: false, foreign_key: true |
 
 ### Association
