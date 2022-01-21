@@ -17,7 +17,7 @@
                     date_separator: '%s'),
                   "<p> 月 </p>", "<p> 日 </p>") + "<p> </p>" %>
       </div>
-      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"sex-category"}) %>
+      <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender-category"}) %>
       <%= f.text_field :age, placeholder: "年齢" %>
       <%= f.text_field :height, placeholder: "身長" %>
       <%= f.text_field :weight, placeholder: "体重" %>

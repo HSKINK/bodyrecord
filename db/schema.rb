@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20_211_210_092_742) do
   create_table 'bodies', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
-    t.integer 'sex_id', null: false
+    t.integer 'gender_id', null: false
     t.integer 'age', null: false
     t.integer 'height', null: false
     t.integer 'nutrients_p', null: false

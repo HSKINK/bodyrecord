@@ -54,12 +54,12 @@ class FatsController < ApplicationController
   private
 
   def fatbody_params
-    params.require(:fat_body).permit(:sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
+    params.require(:fat_body).permit(:gender_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
                                      :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
   end
 
   def body_params
-    params.require(:body).permit(:sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
+    params.require(:body).permit(:gender_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
                                  :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
   end
 end
