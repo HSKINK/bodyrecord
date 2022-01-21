@@ -76,7 +76,7 @@ https://gyazo.com/e2dafc089539f62bbd41ecacfeef1864
 |protein        |float      |null: false                    |
 |fat            |float      |null: false                    |
 |carbohydrate   |float      |null: false                    |
-|goal_body_fat  |date       |null: false                    |
+|goal_body_fat  |float      |null: false                    |
 |body           |references |null: false, foreign_key: true |
 
 ### Association
