@@ -1,8 +1,8 @@
 <div class="contents row">
   <div class="container">
     <h3>入力する</h3>
-    <%= form_with model: @fat_body, url: fats_path, local: true do |f| %>
-      <%= render 'error_messages', model: @fat_body %>
+    <%= form_with model: @body_nutrient_fat, url: fats_path, local: true do |f| %>
+      <%= render 'error_messages', model: @body_nutrient_fat %>
       <p> 年 </p> 
       <div class='input-birth-wrap'>
         <%= raw sprintf(
