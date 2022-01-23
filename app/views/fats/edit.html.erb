@@ -19,12 +19,12 @@
       </div>
       <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender-category"}) %>
       <%= f.text_field :age, placeholder: "年齢" %>
-      <%= f.text_field :height, placeholder: "身長" %>
+      <%= f.text_field :tall, placeholder: "身長" %>
       <%= f.text_field :weight, placeholder: "体重" %>
       <%= f.text_field :body_fat, placeholder: "体脂肪率" %>
-      <%= f.text_field :nutrients_p, placeholder: "タンパク質" %>
-      <%= f.text_field :nutrients_f, placeholder: "脂質" %>
-      <%= f.text_field :nutrients_c, placeholder: "炭水化物" %>
+      <%= f.text_field :protein, placeholder: "タンパク質" %>
+      <%= f.text_field :fat, placeholder: "脂質" %>
+      <%= f.text_field :carbohydrate, placeholder: "炭水化物" %>
       <%= f.text_field :goal_body_fat, placeholder: "目標体脂肪率" %>
       <%= f.submit "再計算する" %>
     <% end %>
