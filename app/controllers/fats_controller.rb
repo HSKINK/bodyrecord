@@ -54,8 +54,7 @@ class FatsController < ApplicationController
   private
 
   def bodynutrientfat_params
-    params.require(:body_nutrient_fat).permit(:gender_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
-                                     :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
+    params.require(:body_nutrient_fat).permit(:gender_id, :age, :tall, :protein, :fat, :carbohydrate, :goal_body_fat, :body_id, :day, :weight, :body_fat, :nutrient_id).merge(user_id: current_user.id)
   end
 
   def body_params
