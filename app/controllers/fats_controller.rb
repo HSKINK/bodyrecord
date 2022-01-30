@@ -1,10 +1,10 @@
 class FatsController < ApplicationController
   def index
-    @fats = current_user.fats.order('day DESC')
+    @fats = Fat.order('day DESC')
     @bodies = Body.all
 
-    weights = current_user.fats.group_by_day(:day, series: false).sum(:weight)
-    body_fats = current_user.fats.group_by_day(:day, series: false).sum(:body_fat)
+    weights = Fat.group_by_day(:day, series: false).sum(:weight)
+    body_fats = Fat.group_by_day(:day, series: false).sum(:body_fat)
     @chart = [
       { name: '体重', data: weights },
       { name: '体脂肪', data: body_fats }

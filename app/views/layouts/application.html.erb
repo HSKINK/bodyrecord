@@ -16,8 +16,8 @@
          <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <%= link_to "性別・年齢・身長", edit_body_path, class: "post" %>
-            <%= link_to "pfcバランス・目標体脂肪率", edit_nutrient_path, class: "post" %>
+            <%= link_to "性別・年齢・身長", new_body_path, class: "post" %>
+            <%= link_to "pfcバランス・目標体脂肪率", new_nutrient_path, class: "post" %>
             <%= link_to "体重・体脂肪率", new_fat_path, class: "post" %>
           </div>
         <% else %>
