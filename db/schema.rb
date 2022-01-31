@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_01_21_113345) do
 
   create_table "bodies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "gender", null: false
+    t.integer "gender_id", null: false
     t.integer "age", null: false
     t.integer "tall", null: false
     t.bigint "user_id", null: false
