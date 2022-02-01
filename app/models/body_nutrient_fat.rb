@@ -1,7 +1,8 @@
 class BodyNutrientFat
   include ActiveModel::Model
   include ActiveRecord::AttributeAssignment
-  attr_accessor :gender_id, :age, :tall, :user_id, :protein, :fat, :carbohydrate, :goal_body_fat, :day, :weight, :body_fat
+  attr_accessor :gender_id, :age, :tall, :user_id, :protein, :fat, :carbohydrate, :goal_body_fat, :day, :weight,
+                :body_fat
 
   validates :gender_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   with_options format: { with: /\A[0-9]+\z/ } do
@@ -21,7 +22,8 @@ class BodyNutrientFat
 
   def save
     body = Body.create(gender_id: gender_id, age: age, tall: tall, user_id: user_id)
-    nutrient = Nutrient.create(protein: protein, fat: fat, carbohydrate: carbohydrate, goal_body_fat: goal_body_fat, body_id: body.id)
+    nutrient = Nutrient.create(protein: protein, fat: fat, carbohydrate: carbohydrate, goal_body_fat: goal_body_fat,
+                               body_id: body.id)
     Fat.create(day: day, weight: weight, body_fat: body_fat, nutrient: nutrient.id)
   end
 end
