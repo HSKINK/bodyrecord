@@ -24,6 +24,6 @@ class BodyNutrientFat
     body = Body.create(gender_id: gender_id, age: age, tall: tall, user_id: user_id)
     nutrient = Nutrient.create(protein: protein, fat: fat, carbohydrate: carbohydrate, goal_body_fat: goal_body_fat,
                                body_id: body.id)
-    Fat.create(day: day, weight: weight, body_fat: body_fat, nutrient: nutrient.id)
+    Fat.create(day: day, weight: weight, body_fat: body_fat, nutrient_id: nutrient.id)
   end
 end
