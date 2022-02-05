@@ -1,8 +1,6 @@
 class FatsController < ApplicationController
   def index
     @fats = Fat.order('day DESC')
-    @bodies = Body.all
-    @nutrients = Nutrient.all
 
     weights = Fat.group_by_day(:day, series: false).sum(:weight)
     body_fats = Fat.group_by_day(:day, series: false).sum(:body_fat)

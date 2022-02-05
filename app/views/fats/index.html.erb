@@ -1,7 +1,6 @@
 <div class="contents row">
   <%= line_chart @chart, min: 0, max: 100 %>
   <% @fats.each do |f| %>
-<% binding.pry %>
     <div class="container"> 
       <div class="more">
         <ul class="more_list">
@@ -12,16 +11,16 @@
         </ul>
       </div>
       <p><%= f.day %></p>
-      <p>体重：<%= f.weight %>kg　体脂肪率：<%= f.body_fat %>％（目標：<%= @nutrients.goal_body_fat %>％）　BMI：<% bmi = (f.weight * 100 * 100) / (@bodies.tall * @bodies.tall) %><%= bmi.to_i %></p>
-      <% if @bodies.gender_id == 2 %> 
-        <p> 基礎代謝量 <% n = 66.4730 + 13.7516 * f.weight + 5.0033 * @bodies.tall - 6.7550 * @bodies.age %><%= n.to_i %>kcal
+      <p>体重：<%= f.weight %>kg　体脂肪率：<%= f.body_fat %>％（目標：<%= f.nutrient.goal_body_fat %>％）　BMI：<% bmi = (f.weight * 100 * 100) / (f.nutrient.body.tall * f.nutrient.body.tall) %><%= bmi.to_i %></p>
+      <% if f.nutrient.body.gender_id == 2 %> 
+        <p> 基礎代謝量 <% n = 66.4730 + 13.7516 * f.weight + 5.0033 * f.nutrient.body.tall - 6.7550 * f.nutrient.body.age %><%= n.to_i %>kcal
       <% else %>
-        <p> 基礎代謝量 <% n = 655.0955 + 9.5634 * f.weight + 1.8496 * @bodies.tall - 4.6756 * @bodies.age %><%= n.to_i %>kcal
+        <p> 基礎代謝量 <% n = 655.0955 + 9.5634 * f.weight + 1.8496 * f.nutrient.body.tall - 4.6756 * f.nutrient.body.age %><%= n.to_i %>kcal
       <% end %>
-        (たんぱく質:<%= (n * @nutrients.protein / 400).to_i %>g 脂肪:<%= (n * @nutrients.fat / 900).to_i %>g 炭水化物:<%= (n * @nutrients.carbohydrate / 400).to_i %>g)</p>
+        (たんぱく質:<%= (n * f.nutrient.protein / 400).to_i %>g 脂肪:<%= (n * f.nutrient.fat / 900).to_i %>g 炭水化物:<%= (n * f.nutrient.carbohydrate / 400).to_i %>g)</p>
       <% n1 = n * 1.5 %><% n2 = n * 1.75 %><% n3 = n * 2.00 %>
       <p>身体活動レベル　低い：<%= n1.to_i %>kcal　普通：<%= n2.to_i %>kcal　高い：<%= n3.to_i %>kcal</p>
-      <% k = f.weight * (f.body_fat - @nutrients.goal_body_fat) / 100 * 9 * 1000 * 0.8 %>
+      <% k = f.weight * (f.body_fat - f.nutrient.goal_body_fat) / 100 * 9 * 1000 * 0.8 %>
       <p>目標体脂肪率まであと<%= k.to_i %>kcalほど落とす必要があります。</p>
     </div>
   <% end %>
