@@ -31,15 +31,13 @@ class FatsController < ApplicationController
   end
 
   def edit
-    @body_nutrient_fat = Body.find_by(fat_id: params[:id])
+    @fat = Fat.find(params[:id])
   end
 
   def update
-    @body_nutrient_fat = BodyNutrientFat.new(body_params)
+    @body_nutrient_fat = BodyNutrientFat.new(bodynutrientfat_params)
     if @body_nutrient_fat.valid?
       @body_nutrient_fat.save
-      fat = Fat.find(params[:id])
-      fat.destroy
       redirect_to root_path
     else
       render :edit
