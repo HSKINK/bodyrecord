@@ -35,9 +35,7 @@ class FatsController < ApplicationController
   end
 
   def update
-    @body_nutrient_fat = BodyNutrientFat.new(bodynutrientfat_params)
-    if @body_nutrient_fat.valid?
-      @body_nutrient_fat.save
+    if @fat.update(fat_params)
       redirect_to root_path
     else
       render :edit
@@ -55,8 +53,7 @@ class FatsController < ApplicationController
                                               :body_id, :day, :weight, :body_fat, :nutrient_id).merge(user_id: current_user.id)
   end
 
-  def body_params
-    params.require(:body).permit(:gender_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
-                                 :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
+  def fat_params
+    params.require(:fat).permit(:fat,:day,:weight, :body_fat).merge(nutrient_id: current_user.id)
   end
 end
