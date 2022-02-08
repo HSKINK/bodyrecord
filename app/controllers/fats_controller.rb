@@ -35,11 +35,9 @@ class FatsController < ApplicationController
   end
 
   def update
-    if @fat.update(fat_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
+    fat = Fat.find(params[:id])
+    fat.update(fat_params)
+    redirect_to root_path
   end
 
   def show
@@ -54,6 +52,6 @@ class FatsController < ApplicationController
   end
 
   def fat_params
-    params.require(:fat).permit(:fat,:day,:weight, :body_fat).merge(nutrient_id: current_user.id)
+    params.require(:fat).permit(:fat,:day,:weight, :body_fat).merge(nutrient_id: current_user.body.nutrient.fat.id)
   end
 end
