@@ -28,5 +28,25 @@
       <%= f.text_field :goal_body_fat, placeholder: "目標体脂肪率" %>
       <%= f.submit "計算する" %>
     <% end %>
+    <%= form_with model: @body_nutrient_fat, url: fats_path, local: true do |f| %>
+      <%= render 'error_messages', model: @body_nutrient_fat %>
+      <p> 年 </p> 
+      <div class='input-birth-wrap'>
+        <%= raw sprintf(
+                  f.date_select(
+                    :day,
+                    class:'select-box',
+                    id:"date",
+                    use_month_numbers: true,
+                    prompt:'---',
+                    start_year: 2019,
+                    end_year: Time.now.year,
+                    date_separator: '%s'),
+                  "<p> 月 </p>", "<p> 日 </p>") + "<p> </p>" %>
+      </div>
+      <%= f.text_field :weight, placeholder: "体重" %>
+      <%= f.text_field :body_fat, placeholder: "体脂肪率" %>
+      <%= f.submit "計算する" %>
+    <% end %>
   </div>
 </div>
