@@ -12,6 +12,8 @@ class FatsController < ApplicationController
 
   def new
     @body_nutrient_fat = BodyNutrientFat.new
+    @fat = Fat.new
+    binding.pry
   end
 
   def create
