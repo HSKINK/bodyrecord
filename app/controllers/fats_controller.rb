@@ -17,6 +17,15 @@ class FatsController < ApplicationController
 
   def create
     binding.pry
+    @fat = Fat.new(fat_params)
+    binding.pry
+    if @fat.save
+      binding.pry
+      redirect_to root_path
+    else
+      render :new
+    end
+    binding.pry
     @body_nutrient_fat = BodyNutrientFat.new(bodynutrientfat_params)
     if @body_nutrient_fat.valid?
       @body_nutrient_fat.save
@@ -54,6 +63,6 @@ class FatsController < ApplicationController
   end
 
   def fat_params
-    params.require(:fat).permit(:fat,:day,:weight, :body_fat).merge(nutrient_id: current_user.body.nutrient.fat.id)
+    params.require(:fat).permit(:day,:weight, :body_fat).merge(nutrient_id: current_user.body.nutrient.fat.id)
   end
 end
