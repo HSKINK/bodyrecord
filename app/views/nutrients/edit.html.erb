@@ -3,9 +3,9 @@
     <h3>再入力する</h3>
     <%= form_with model: @body_nutrient_fat, url: fat_path, local: true do |f| %>
       <%= render 'error_messages', model: @body_nutrient_fat %>
-      <%= f.text_field :protein, placeholder: "タンパク質" %>
-      <%= f.text_field :fat, placeholder: "脂質" %>
-      <%= f.text_field :carbohydrate, placeholder: "炭水化物" %>
+      <%= f.text_field :n_protein, placeholder: "タンパク質" %>
+      <%= f.text_field :n_fat, placeholder: "脂質" %>
+      <%= f.text_field :n_carbohydrate, placeholder: "炭水化物" %>
       <%= f.text_field :goal_body_fat, placeholder: "目標体脂肪率" %>
       <%= f.submit "再計算する" %>
     <% end %>

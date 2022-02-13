@@ -16,7 +16,6 @@ class FatsController < ApplicationController
   end
 
   def create
-    binding.pry
     @fat = Fat.new(fat_params)
     binding.pry
     if @fat.save
@@ -58,7 +57,7 @@ class FatsController < ApplicationController
   private
 
   def bodynutrientfat_params
-    params.require(:body_nutrient_fat).permit(:gender_id, :age, :tall, :protein, :fat, :carbohydrate, :goal_body_fat,
+    params.require(:body_nutrient_fat).permit(:gender_id, :age, :tall, :n_protein, :n_fat, :n_carbohydrate, :goal_body_fat,
                                               :body_id, :day, :weight, :body_fat, :nutrient_id).merge(user_id: current_user.id)
   end
 

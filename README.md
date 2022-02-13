@@ -73,9 +73,9 @@ https://gyazo.com/e2dafc089539f62bbd41ecacfeef1864
 
 |Column         |Type       |Options                        |
 |---------------|-----------|-------------------------------|
-|protein        |integer    |null: false                    |
-|fat            |integer    |null: false                    |
-|carbohydrate   |integer    |null: false                    |
+|n_protein      |integer    |null: false                    |
+|n_fat          |integer    |null: false                    |
+|n_carbohydrate |integer    |null: false                    |
 |goal_body_fat  |float      |null: false                    |
 |body           |references |null: false, foreign_key: true |
 
