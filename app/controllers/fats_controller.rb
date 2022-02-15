@@ -16,15 +16,6 @@ class FatsController < ApplicationController
   end
 
   def create
-    @fat = Fat.new(fat_params)
-    binding.pry
-    if @fat.save
-      binding.pry
-      redirect_to root_path
-    else
-      render :new
-    end
-    binding.pry
     @body_nutrient_fat = BodyNutrientFat.new(bodynutrientfat_params)
     if @body_nutrient_fat.valid?
       @body_nutrient_fat.save
@@ -32,6 +23,12 @@ class FatsController < ApplicationController
     else
       render :new
     end
+    # @fat = Fat.new(fat_params)
+    # if @fat.save
+    #   redirect_to root_path
+    # else
+    #   render :new
+    # end
   end
 
   def destroy
