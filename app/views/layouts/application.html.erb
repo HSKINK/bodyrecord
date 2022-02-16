@@ -16,7 +16,7 @@
          <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <% if @fats = [] %>
+            <% if @fats = nil %>
               <%= link_to "入力", new_fat_path, class: "post" %>
             <% else %>
               <%= link_to "追加", new_fat_path, class: "post" %>
