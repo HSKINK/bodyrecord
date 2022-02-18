@@ -16,15 +16,21 @@ class FatsController < ApplicationController
   end
 
   def create
-    # @body_nutrient_fat = BodyNutrientFat.new(bodynutrientfat_params)
-    @fat = Fat.new(fat_params)
-    # if @body_nutrient_fat.valid?
-    #   @body_nutrient_fat.save
-    #   redirect_to root_path
-    if @fat.save
-      redirect_to root_path
+    if Fat.count = 1
+      @body_nutrient_fat = BodyNutrientFat.new(bodynutrientfat_params)
+      if @body_nutrient_fat.valid?
+        @body_nutrient_fat.save
+        redirect_to root_path
+      else
+        render :new
+      end
     else
-      render :new
+      @fat = Fat.new(fat_params)
+      if @fat.save
+        redirect_to root_path
+      else
+        render :new
+      end
     end
   end
 
