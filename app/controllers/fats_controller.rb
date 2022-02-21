@@ -1,10 +1,9 @@
 class FatsController < ApplicationController
   def index
-    @fats = current_user.fats.order('day DESC')
-    @bodies = Body.all
+    @fats = Fat.order('day DESC')
 
-    weights = current_user.fats.group_by_day(:day, series: false).sum(:weight)
-    body_fats = current_user.fats.group_by_day(:day, series: false).sum(:body_fat)
+    weights = Fat.group_by_day(:day, series: false).sum(:weight)
+    body_fats = Fat.group_by_day(:day, series: false).sum(:body_fat)
     @chart = [
       { name: '体重', data: weights },
       { name: '体脂肪', data: body_fats }
@@ -12,16 +11,29 @@ class FatsController < ApplicationController
   end
 
   def new
-    @fat_body = FatBody.new
+    if Fat.count == 1
+      @body_nutrient_fat = BodyNutrientFat.new
+    else
+      @fat = Fat.new
+    end
   end
 
   def create
-    @fat_body = FatBody.new(fatbody_params)
-    if @fat_body.valid?
-      @fat_body.save
-      redirect_to root_path
+    if Fat.count == 1
+      @body_nutrient_fat = BodyNutrientFat.new(bodynutrientfat_params)
+      if @body_nutrient_fat.valid?
+        @body_nutrient_fat.save
+        redirect_to root_path
+      else
+        render :new
+      end
     else
-      render :new
+      @fat = Fat.new(fat_params)
+      if @fat.save
+        redirect_to root_path
+      else
+        render :new
+      end
     end
   end
 
@@ -32,19 +44,13 @@ class FatsController < ApplicationController
   end
 
   def edit
-    @fat_body = Body.find_by(fat_id: params[:id])
+    @fat = Fat.find(params[:id])
   end
 
   def update
-    @fat_body = FatBody.new(body_params)
-    if @fat_body.valid?
-      @fat_body.save
-      fat = Fat.find(params[:id])
-      fat.destroy
-      redirect_to root_path
-    else
-      render :edit
-    end
+    fat = Fat.find(params[:id])
+    fat.update(fat_params)
+    redirect_to root_path
   end
 
   def show
@@ -53,13 +59,12 @@ class FatsController < ApplicationController
 
   private
 
-  def fatbody_params
-    params.require(:fat_body).permit(:sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
-                                     :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
+  def bodynutrientfat_params
+    params.require(:body_nutrient_fat).permit(:gender_id, :age, :tall, :n_protein, :n_fat, :n_carbohydrate, :goal_body_fat,
+                                              :body_id, :day, :weight, :body_fat, :nutrient_id).merge(user_id: current_user.id)
   end
 
-  def body_params
-    params.require(:body).permit(:sex_id, :age, :height, :nutrients_p, :nutrients_f, :nutrients_c, :goal_body_fat,
-                                 :fat_id, :weight, :body_fat, :day).merge(user_id: current_user.id)
+  def fat_params
+    params.require(:fat).permit(:day,:weight, :body_fat).merge(nutrient_id: current_user.body.nutrient.id)
   end
 end

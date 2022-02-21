@@ -1,0 +1,11 @@
+<div class="contents row">
+  <div class="container">
+    <h3>再入力する</h3>
+    <%= form_with model: @body_nutrient_fat, url: fat_path, local: true do |f| %>
+      <%= render 'error_messages', model: @body_nutrient_fat %>
+      <%= f.text_field :weight, placeholder: "年齢" %>
+      <%= f.text_field :body_fat, placeholder: "身長" %>
+      <%= f.submit "再計算する" %>
+    <% end %>
+  </div>
+</div>

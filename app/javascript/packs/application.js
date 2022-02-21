@@ -8,7 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-require("../fat_body")
+require("../body_nutrient_fat")
 
 import "chartkick/chart.js"
 

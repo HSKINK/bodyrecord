@@ -1,7 +1,7 @@
 ## アプリケーション名:BodyRecord
 ---
 ## アプリケーション概要
-- 登録し各項目を入力することで基礎代謝量など減量の参考になる値の計算を行う。また体重、体脂肪を記録し、グラフ化することで日々の変化を捉えやすくる。
+- 各項目を入力することで基礎代謝量など減量の参考になる値を計算し表示を行う。またログインすることで体重、体脂肪を記録でき、グラフ化することで日々の変化を捉えやすくる。
 ---
 ## URL
   https://bodyrecord.herokuapp.com/
@@ -16,13 +16,17 @@
     パスワード：test12
 ---
 ## 利用方法
-- ログインし日々、各項目の値を入力する。
+- ログインし各項目の値を入力し記録するとそれを元に計算し結果とグラフが表示される。
+- 未ログインでも各項目に値を入力すれば計算し結果を表示される。ただし記録とグラフの表示は行われない。
 ---
 ## 目指した課題解決
-- 自身の減量に必要な値や様子をより簡単に捉えるようにする。
+- 減量に必要な値や様子をより簡単に捉えられるようにする。
 ---
 ## 洗い出した要件
-- 計算結果表示機能、データ記録機能、グラフ化機能、ログイン機能
+- 計算結果表示機能（性別、年齢、身長、体重、体脂肪率、たんぱく質、脂肪、炭水化物、目標体脂肪率を元に計算しBMI、基礎代謝、各栄養素摂取量、目標体脂肪率までの減量kcalを表示）
+- ユーザー管理機能（新規登録、ログイン・ログアウト機能）
+- データの入力および記録機能（計算に必要な値の入力、保存、変更機能及び日々の体重、体脂肪率を記録）
+- グラフ機能（指定した期間の体重、体脂肪及び目標体脂肪率をグラフ表示）
 ---
 ## 実装した機能についての画像やGIFおよびその説明
 - ログイン機能、記録した体重,体脂肪率をグラフ化、記録してある項目を元に計算し基礎代謝量などを表示 
@@ -34,8 +38,8 @@ https://gyazo.com/e2dafc089539f62bbd41ecacfeef1864
 
 ---
 ## 実装予定の機能
-- 写真投稿機能
-- グラフの縦軸、横軸の幅変更機能
+- 指定した期間のデーターをグラフ表示する
+- 画像登録機能
 ---
 ## データベース設計
 	
@@ -48,38 +52,49 @@ https://gyazo.com/e2dafc089539f62bbd41ecacfeef1864
 |encrypted_password |string |null: false               |
 
 ### Association
-- has_many : fatsテーブル
+- has_one : bodyテーブル
+
+
+## bodiesテーブル
+
+|Column |Type       |Options                        |
+|-------|-----------|-------------------------------|
+|gender |integer    |null: false                    |
+|age    |integer    |null: false                    |
+|tall   |integer    |null: false                    |
+|user   |references |null: false, foreign_key: true |
+
+### Association
+- has_one : nutrientテーブル
+- belongs_to :userテーブル
+
+
+## nutrientsテーブル
+
+|Column         |Type       |Options                        |
+|---------------|-----------|-------------------------------|
+|n_protein      |integer    |null: false                    |
+|n_fat          |integer    |null: false                    |
+|n_carbohydrate |integer    |null: false                    |
+|goal_body_fat  |float      |null: false                    |
+|body           |references |null: false, foreign_key: true |
+
+### Association
+- has_many :fatsテーブル
+- belongs_to :bodyテーブル
 
 
 ## fatsテーブル
 
 |Column   |Type       |Options                        |
 |---------|-----------|-------------------------------|
+|day      |date       |null: false                    |
 |weight   |float      |null: false                    |
 |body_fat |float      |null: false                    |
-|day      |date       |null: false                    |
-|user     |references |null: false, foreign_key: true |
+|nutrient |references |null: false, foreign_key: true |
 
 ### Association
-- belongs_to :userテーブル
-- has_one :bodyテーブル
-
-
-## bodiesテーブル
-
-|Column        |Type       |Options                        |
-|--------------|-----------|-------------------------------|
-|sex           |integer    |null: false                    |
-|age           |integer    |null: false                    |
-|height        |integer    |null: false                    |
-|nutrients_p   |integer    |null: false                    |
-|nutrients_f   |integer    |null: false                    |
-|nutrients_c   |integer    |null: false                    |
-|goal_body_fat |float      |                               |
-|fat           |references |null: false, foreign_key: true |
-
-### Association
-- belongs_to :fatテーブル
+- belongs_to :nutrientテーブル
 ---
 ## ローカルでの動作方法
 git clone git@github.com:HSKINK/bodyrecord.git

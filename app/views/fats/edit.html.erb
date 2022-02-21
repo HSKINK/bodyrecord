@@ -1,8 +1,8 @@
 <div class="contents row">
   <div class="container">
     <h3>再入力する</h3>
-    <%= form_with model: @fat_body, url: fat_path, local: true do |f| %>
-      <%= render 'error_messages', model: @fat_body %>
+    <%= form_with model: @fat, url: fat_path, local: true do |f| %>
+      <%= render 'error_messages', model: @fat %>
       <p> 年 </p> 
       <div class='input-birth-wrap'>
         <%= raw sprintf(
@@ -17,15 +17,8 @@
                     date_separator: '%s'),
                   "<p> 月 </p>", "<p> 日 </p>") + "<p> </p>" %>
       </div>
-      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"sex-category"}) %>
-      <%= f.text_field :age, placeholder: "年齢" %>
-      <%= f.text_field :height, placeholder: "身長" %>
       <%= f.text_field :weight, placeholder: "体重" %>
       <%= f.text_field :body_fat, placeholder: "体脂肪率" %>
-      <%= f.text_field :nutrients_p, placeholder: "タンパク質" %>
-      <%= f.text_field :nutrients_f, placeholder: "脂質" %>
-      <%= f.text_field :nutrients_c, placeholder: "炭水化物" %>
-      <%= f.text_field :goal_body_fat, placeholder: "目標体脂肪率" %>
       <%= f.submit "再計算する" %>
     <% end %>
   </div>

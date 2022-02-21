@@ -1,4 +1,4 @@
-class Sex < ActiveHash::Base
+class Gender < ActiveHash::Base
   self.data = [
     { id: 1, name: '性別' },
     { id: 2, name: '男性' },
