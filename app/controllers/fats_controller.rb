@@ -11,13 +11,15 @@ class FatsController < ApplicationController
   end
 
   def new
-    @body_nutrient_fat = BodyNutrientFat.new
-    @fat = Fat.new
+    if Fat.count == 1
+      @body_nutrient_fat = BodyNutrientFat.new
+    else
+      @fat = Fat.new
+    end
   end
 
   def create
-    @count = Fat.count
-    if @count == 1
+    if Fat.count == 1
       @body_nutrient_fat = BodyNutrientFat.new(bodynutrientfat_params)
       if @body_nutrient_fat.valid?
         @body_nutrient_fat.save
