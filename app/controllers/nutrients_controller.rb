@@ -1,5 +1,6 @@
 class NutrientsController < ApplicationController
-  def new; end
-
-  def edit; end
+  def edit
+    binding.pry
+    @nutrient = Nutrient.find(params[:id])
+  end
 end

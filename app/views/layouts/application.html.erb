@@ -20,8 +20,9 @@
               <%= link_to "入力", new_fat_path, class: "post" %>
             <% else %>
               <%= link_to "追加", new_fat_path, class: "post" %>
-              <%= link_to "変更", edit_body_path %>
-              <%= link_to "変更", edit_nutrient_path %>
+              <% binding.pry %>
+              <%= link_to "変更", edit_body_path(@body.id) %>
+              <%= link_to "変更", edit_nutrient_path(@nutrient.id) %>
             <% end %>
           </div>
         <% else %>

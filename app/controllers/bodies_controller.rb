@@ -1,5 +1,6 @@
 class BodiesController < ApplicationController
-  def new; end
-
-  def edit; end
+  def edit
+    binding.pry
+    @body = Body.find(params[:id])
+  end
 end
