@@ -1,7 +1,7 @@
 <div class="contents row">
   <div class="container">
     <h3>再入力する</h3>
-    <%= form_with model: @nutrient, url: fat_path, local: true do |f| %>
+    <%= form_with model: @nutrient, url: nutrient_path, local: true do |f| %>
       <%= render 'error_messages', model: @nutrient %>
       <%= f.text_field :n_protein, placeholder: "タンパク質" %>
       <%= f.text_field :n_fat, placeholder: "脂質" %>
