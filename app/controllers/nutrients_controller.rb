@@ -13,6 +13,6 @@ class NutrientsController < ApplicationController
   private
 
   def nutrient_params
-    params.require(:fat).permit(:day,:weight, :body_fat).merge(nutrient_id: current_user.body.nutrient.id)
+    params.require(:nutrient).permit(:n_protein,:n_fat, :n_carbohydrate).merge(body_id: current_user.body.id)
   end
 end
