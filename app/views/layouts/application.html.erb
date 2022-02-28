@@ -21,7 +21,6 @@
             <% else %>
               <%= link_to "追加", new_fat_path, class: "post" %>
               <%= link_to "変更", edit_body_path(current_user.id) %>
-              <% binding.pry %>
               <%= link_to "変更", edit_nutrient_path(current_user.id) %>
             <% end %>
           </div>
