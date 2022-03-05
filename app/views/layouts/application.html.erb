@@ -19,9 +19,9 @@
             <% if @fats = nil %>
               <%= link_to "入力", new_fat_path, class: "post" %>
             <% else %>
-              <%= link_to "追加", new_fat_path %>
-              <%= link_to "変更", edit_body_path(current_user.id) %>
-              <%= link_to "変更", edit_nutrient_path(current_user.id) %>
+              <%= link_to "体重", new_fat_path %>
+              <%= link_to "身長", edit_body_path(current_user.id) %>
+              <%= link_to "栄養素", edit_nutrient_path(current_user.id) %>
             <% end %>
           </div>
         <% else %>
