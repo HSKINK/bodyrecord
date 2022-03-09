@@ -3,12 +3,17 @@ require 'rails_helper'
 RSpec.describe Nutrient, type: :model do
   before do
     @nutrient = FactoryBot.build(:nutrient)
+    binding.pry
   end
-
+binding.pry
   describe '3大栄養素バランス' do
+    binding.pry
     context '登録できるとき' do
+      binding.pry
       it '各項目に正しく入力がなされているなら登録できる' do
+        binding.pry
         expect(@nutrient).to be_valid
+        binding.pry
       end
     end
     # context '新規登録できないとき' do
