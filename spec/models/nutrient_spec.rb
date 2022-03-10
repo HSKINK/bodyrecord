@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Nutrient, type: :model do
   before do
+    binding.pry
+    @user = FactoryBot.build(:user)
+    binding.pry
     @nutrient = FactoryBot.build(:nutrient)
     binding.pry
   end
