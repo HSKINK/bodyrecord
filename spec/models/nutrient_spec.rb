@@ -4,6 +4,7 @@ RSpec.describe Nutrient, type: :model do
   before do
     @user = FactoryBot.build(:user)
     @nutrient = FactoryBot.build(:nutrient)
+    binding.pry
   end
   describe '3大栄養素バランス' do
     context '登録できるとき' do
