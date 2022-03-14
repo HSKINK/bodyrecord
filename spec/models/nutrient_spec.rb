@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Nutrient, type: :model do
   before do
-    @user = FactoryBot.build(:user)
-    @nutrient = FactoryBot.build(:nutrient)
-    binding.pry
+    user = FactoryBot.build(:user)
+    body = FactoryBot.build(:body, user_id: user.id)
+    @nutrient = FactoryBot.build(:nutrient, body_id: body.id)
+    # @order_address = FactoryBot.build(:order_address, user_id: user.id, item_id: item.id)
   end
   describe '3大栄養素バランス' do
     context '登録できるとき' do
       it '各項目に正しく入力がなされているなら登録できる' do
-        binding.pry
         expect(@nutrient).to be_valid
       end
     end
