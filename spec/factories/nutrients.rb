@@ -4,5 +4,6 @@ FactoryBot.define do
     n_fat          { '20' }
     n_carbohydrate { '40' }
     goal_body_fat  { '15' }
+    association :body
   end
 end

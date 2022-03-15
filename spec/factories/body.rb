@@ -3,5 +3,6 @@ FactoryBot.define do
     gender_id { '2' }
     age       { '40' }
     tall      { '167' }
+    association :user
   end
 end
