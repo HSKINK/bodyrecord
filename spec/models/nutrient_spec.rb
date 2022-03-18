@@ -5,6 +5,7 @@ RSpec.describe Nutrient, type: :model do
     user = FactoryBot.create(:user)
     body = FactoryBot.create(:body, user_id: user.id)
     @nutrient = FactoryBot.build(:nutrient, body_id: body.id)
+    sleep(1)
     # @order_address = FactoryBot.build(:order_address, user_id: user.id, item_id: item.id)
   end
   describe '3大栄養素バランス' do
