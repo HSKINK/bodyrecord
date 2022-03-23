@@ -18,7 +18,7 @@ class BodyNutrientFat
     validates :body_fat
   end
   validates :day, presence: true
-  validates :user_id, presence: true
+  validates :user_id
 
   def save
     body = Body.create(gender_id: gender_id, age: age, tall: tall, user_id: user_id)
