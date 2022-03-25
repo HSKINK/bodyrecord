@@ -6,7 +6,6 @@ RSpec.describe BodyNutrientFat, type: :model do
       user = FactoryBot.create(:user)
       item = FactoryBot.create(:item)
       @order_address = FactoryBot.build(:order_address, user_id: user.id, item_id: item.id)
-      sleep(1)
     end
 
     context '内容に問題ない場合' do
