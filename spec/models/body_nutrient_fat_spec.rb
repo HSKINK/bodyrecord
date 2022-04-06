@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BodyNutrientFat, type: :model do /ここがおかしい/
+RSpec.describe BodyNutrientFat, type: :model do
 
   describe '身体情報新規登録' do
     before do
