@@ -7,7 +7,7 @@ FactoryBot.define do
     n_fat          { '20' }
     n_carbohydrate { '40' }
     goal_body_fat  { '15' }
-    day            { '2019/01/05' }
+    day            { '01/05/2019' }
     weight         { '60' }
     body_fat       { '17' }
   end
