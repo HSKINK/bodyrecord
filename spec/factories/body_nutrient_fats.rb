@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :body_nutrient_fat do
+    binding.pry
     gender_id      { '1' }
     age            { '40' }
     tall           { '170' }
