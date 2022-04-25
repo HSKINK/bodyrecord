@@ -3,8 +3,8 @@ FactoryBot.define do
     gender_id      { '1' }
     age            { '40' }
     tall           { '170' }
-    binding.pry
     n_protein      { '40' }
+    binding.pry
     n_fat          { '20' }
     n_carbohydrate { '40' }
     goal_body_fat  { '15' }
