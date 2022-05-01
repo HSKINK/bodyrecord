@@ -8,8 +8,8 @@ FactoryBot.define do
     n_carbohydrate { '40' }
     goal_body_fat  { '15' }
     day            { '2021/04/01' }
-    binding.pry
     weight         { '60' }
+    binding.pry
     body_fat       { '17' }
   end
 end
