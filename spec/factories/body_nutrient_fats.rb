@@ -10,6 +10,6 @@ FactoryBot.define do
     day            { '2021/04/01' }
     weight         { '60' }
     body_fat       { '17' }
-    binding.pry
   end
+  binding.pry
 end
