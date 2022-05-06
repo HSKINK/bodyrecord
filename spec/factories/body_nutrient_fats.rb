@@ -12,4 +12,3 @@ FactoryBot.define do
     body_fat       { '17' }
   end
 end
-binding.pry

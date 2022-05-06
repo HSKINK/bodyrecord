@@ -4,6 +4,7 @@ RSpec.describe BodyNutrientFat, type: :model do
 
   describe '身体情報新規登録' do
     before do
+      binding.pry
       user = FactoryBot.create(:user)
       @body_nutrient_fat = FactoryBot.build(:body_nutrient_fat, user_id: user.id)
       sleep(1)
