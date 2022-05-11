@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 binding.pry
-RSpec.describe BodyNutrientFat, type: :model do
+RSpec.describe BodyNutrientFat, type: :model do #ここがおかしいのかな
   describe '身体情報新規登録' do
     before do
       user = FactoryBot.create(:user)
