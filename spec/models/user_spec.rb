@@ -1,6 +1,8 @@
 require 'rails_helper'
 
+binding.pry
 RSpec.describe User, type: :model do
+  binding.pry
   before do
     @user = FactoryBot.build(:user)
   end
